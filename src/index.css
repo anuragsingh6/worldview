@@ -1,1 +1,67 @@
-html,body,#root{height:auto;width:100%;margin:0;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+html,body,#root,.navbar,.page404,.page404container,.loginpage,.loginpage-container,.signuppage,.signuppage-container,.mainpage,.div1,.div1-left,.div1-right,.div2{height:auto;width:100%;margin:0;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:2vw;}
+.navbar{height:7vh;flex-direction:row;justify-content:space-around;background-color:#f0f0f0;position:fixed;top:0;z-index:2;}
+.logo,.uilogger,.uimode{height:100%;align-items:center;}
+.logo{font-size:3vw;font-family:sans-serif;font-weight:bold;}/*margin-left:2vw;background:fixed left center no-repeat;background-size:contain;background-image:url(/images/logo.svg);}*/
+/* .logo::before{background-image:url(/images/logo.svg);} */
+input{font-size:2.2vw;}
+.navbarsearch{padding:3% 5%;border:0.1vw solid grey;border-radius:20vw;outline:none;}
+.navbarsearch:focus{box-shadow:1vw 1vw 1vw -1vw black;}
+.uilogger,.uimode,.logo{display:flex;flex-direction:row;align-items:center;justify-content:center;}
+a{color:initial;text-decoration:none;}
+
+::-webkit-scrollbar{width:1vw;}
+::-webkit-scrollbar-track{background-color:grey;}
+::-webkit-scrollbar-thumb{background-color:#f0f0f0;}
+
+.page404,.loginpage,.signuppage{height:93vh;margin-top:7vh;}
+.page404text{width:100%;display:flex;justify-content:center;font-size:1em;}
+.page404image{height:30vh;width:30vh;background:center no-repeat;background-size:contain;background-image:url(/images/404.svg);}
+.page404container,.loginpage-container,.signuppage-container{height:75%;justify-content:space-evenly;}
+
+.loginpage,.signuppage{background-image:linear-gradient(to right,#006200,yellow);}
+.loginheading,.signupheading{font-size:4vw;text-align:center;}
+.loginform,.signupform{height:90%;width:30%;padding:2%;display:flex;flex-direction:column;justify-content:space-evenly;border:0.2vw solid yellow;border-radius:2vw;backdrop-filter:blur(5px);}
+.logininput,.signupinput{font-size:3vw;border:none;border-bottom:0.1vw solid yellow;border-radius:0;outline:none;background-color:transparent;}
+.logininput::placeholder,.signupinput::placeholder{color:#ffff60;}
+.loginbutton,.signupbutton{font-size:0.7em;padding:3%;color:white;background-color:green;border:none;border-radius:20vw;}
+.loginbutton:hover,.signupbutton:hover{background-color:#006200!important;}
+.loginsignup{text-align:center;font-size:0.5em;}
+
+.mainpage{margin-top:7vh;}
+.div1,.div2{height:50vh;width:100%;background-color:white;flex-direction:row;align-items:center;justify-content:space-evenly;}
+.div1-left,.div1-right{height:50%;width:50%;margin-left:5%;align-items:flex-start;justify-content:space-evenly;}
+.div1-left-heading{font-weight:bold;}
+.div1-left-buttoncontainer{height:15%;width:100%;display:flex;flex-direction:row;align-items:center;justify-content:flex-start;}
+.main-button{height:100%;width:100%;padding:2%;font-size:0.7em;color:white;background-color:#23b9ff;border:none;border-radius:20vw;cursor:pointer;}
+.div1-image{height:100%;width:90%;background:center no-repeat;background-size:contain;background-image:url(/images/img.svg);}
+.div1-imagecover{height:50%;width:39%;position:absolute;z-index:1;background-image:linear-gradient(to right,#fffffff0,#00000000);}
+.div1-left-buttoncontainer>a{height:100%;width:75%;margin:2%;}
+
+
+@media screen and (min-width:500px) {
+    html,body,#root,.navbar{font-size:1.75vw;}
+    .logo{font-size:2.625vw;}
+    .navbarsearch{font-size:1.925vw;}
+    .loginform,.signupform{height:100%;}
+    .loginheading,.signupheading{font-size:3vw;}
+    .logininput,.loginbutton,.signupinput,.signupbutton{font-size:2vw;}
+
+    .div1,.div2{height:75vh;}
+}
+
+@media screen and (min-width:800px) {
+    html,body,#root,.navbar{font-size:1.5vw;}
+    .logo{font-size:2.25vw;}
+    .navbarsearch{font-size:1.65vw;}
+    .loginheading,.signupheading{font-size:2.25vw;}
+    .logininput,.loginbutton,.signupinput,.signupbutton{font-size:1.5vw;}
+}
+
+
+@media screen and (min-width:1200px) {
+    html,body,#root,.navbar{font-size:1vw;}
+    .logo{font-size:1.5vw;}
+    .navbarsearch{font-size:1.1vw;}
+    .loginheading,.signupheading{font-size:2vw;}
+    .logininput,.loginbutton,.signupinput,.signupbutton{font-size:1.25vw;}
+}
