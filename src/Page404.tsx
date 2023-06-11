@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Page404(){
+    useEffect(()=>{document.title="Page Not Found | Worldview"},[])
     return (
         <div className="page404">
             <div className="page404container">

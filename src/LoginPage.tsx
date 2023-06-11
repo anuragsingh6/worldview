@@ -1,22 +1,18 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
 
-function LoginPage(){
-
-    useEffect(()=>{
-        document.title="Log In | Worldview";
-    },[])
-
+function LoginPage(props:any){
+    useEffect(()=>{document.title="Log In | Worldview";},[])
     return (
-        <div className="loginpage">
-            <div className="loginpage-container">
-                <form className="loginform">
-                    <div className="loginheading">Log In</div>
-                    <input className="logininput" placeholder="Name" type="text" />
-                    <input className="logininput" placeholder="Email" type="text" />
-                    <input className="logininput" placeholder="Password" type="password" />
-                    <button className="loginbutton" type="submit">Log In</button>
-                    <small className="loginsignup">Don't have an account? <Link to="/signup"><div style={{whiteSpace:"nowrap",color:"brown"}}>Sign Up</div></Link></small>
+        <div id="loginpage" className={`${props.theme}`}>
+            <div id="loginpage-container">
+                <form id="loginform">
+                    <div id="loginheading">Log In</div>
+                    <input className={`${props.theme} logininput`} placeholder="Name" type="text" />
+                    <input className={`${props.theme} logininput`} placeholder="Email" type="text" />
+                    <input className={`${props.theme} logininput`} placeholder="Password" type="password" />
+                    <button id="loginbutton" type="submit">Log In</button>
+                    <small id="loginsignup" className={`${props.theme}`}>Don't have an account? <Link to="/signup"><div className={`loginsignupinterchange ${props.theme}`}>Sign Up</div></Link></small>
                 </form>
             </div>
         </div>
