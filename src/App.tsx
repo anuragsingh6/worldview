@@ -22,7 +22,7 @@ function App(){
                     <Route path="/" element={<MainPage theme={theme} />} />
                     <Route path="/login" element={<LoginPage theme={theme} />} />
                     <Route path="/signup" element={<SignupPage theme={theme} />} />
-                    <Route path="*" element={<Page404 />} />
+                    <Route path="*" element={<Page404 theme={theme} />} />
                 </Routes>
             </BrowserRouter>
         </Theme.Provider>

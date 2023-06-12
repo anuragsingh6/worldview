@@ -23,9 +23,11 @@ a{color:initial;text-decoration:none;}
 ::-webkit-scrollbar-thumb{background-color:#f0f0f0;}
 
 .page404,#loginpage,#signuppage{height:93vh;margin-top:7vh;}
+.page404.light{color:black;background-color:white;}.page404.dark{color:white;background-color:#333333;}
 .page404text{width:100%;display:flex;justify-content:center;font-size:1em;}
 .page404image{height:30vh;width:30vh;background:center no-repeat;background-size:contain;background-image:url(/images/404.svg);}
 .page404container,#loginpage-container,#signuppage-container{height:75%;justify-content:space-evenly;}
+.page404-gohome{padding:2%;white-space:nowrap;}.page404-gohome.light{color:black;border:0.1vw solid black;}.page404-gohome.dark{color:white;border:0.1vw solid white;}
 
 #loginpage.light,#signuppage.light{background-image:linear-gradient(to right,#006200,yellow);}
 #loginpage.dark,#signuppage.dark{background-image:linear-gradient(to right,#002f00,#474700);}
@@ -52,10 +54,14 @@ a{color:initial;text-decoration:none;}
 #div1-imagecover.dark{background-image:linear-gradient(to right,#333333,#00000000);}
 .div1-left-buttoncontainer>a{height:100%;width:75%;margin:2%;}
 
-#div2{display:flex;flex-direction:column;}#div2.light{color:black;}#div2.dark{color:white;}
-.div2-topimage{height:45%;width:45%;background:center no-repeat;background-size:contain;background-image:url(/images/logo.svg);}
+#div2,#div3{display:flex;flex-direction:column;}#div2.light{color:black;}#div2.dark{color:white;}
+.div2-top-image{height:45%;width:45%;background:center no-repeat;background-size:contain;background-image:url(/images/logo.svg);}
 /* .div2-bottomcontent{height:55%;width:90%;padding:0% 5%;display:flex;text-align:center;} */
 
+.div3-top-heading{width:90%;font-weight:bold;text-align:left;}
+.div3-top-heading.light{color:black}.div3-top-heading.dark{color:white}
+.div3-bottom-videos{display:flex;flex-direction:row;}
+.suggested-video{height:90%;width:90%;}
 
 #footer{padding:3% 0%;font-size:0.7em;}
 #footer.light{color:black;background-color:#f0f0f0;}#footer.dark{color:white;background-color:#222222;}
@@ -68,7 +74,7 @@ a{color:initial;text-decoration:none;}
     #loginheading,#signupheading{font-size:3vw;}
     .logininput,#loginbutton,.signupinput,#signupbutton{font-size:2vw;}
 
-    .div1,#div2{height:75vh;}
+    #div1,#div2,#div3{height:75vh;}
 }
 
 @media screen and (min-width:800px) {
