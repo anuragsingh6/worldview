@@ -1,24 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SuggestedVideo from "./SuggestedVideo";
 
 function MainPage(props:any){
-    const dataFetched = useRef(false);
-    let videoData:any;let [videosLoaded,setVideosLoaded]=useState(false);
+    let [videoData,setVideoData]=useState({items:{0:{id:""},1:{id:""},2:{id:""}}});
     useEffect(
         ()=>{document.title="Worldview";
-        if (dataFetched.current) return;
-        dataFetched.current = true;
-        fetchSuggestedVideos()},[])
+        fetchSuggestedVideos();},[])
 
     async function fetchSuggestedVideos(){
-        console.log(videosLoaded);
         let rawData = await fetch("https://youtube-browser-api.netlify.app/data/suggestion?limit=3");
-        videoData = await rawData.json();
-        console.log("0:",videoData.items[0],"\n\n1:",videoData.items[1],"\n\n2:",videoData.items[2]);
-        setVideosLoaded(true);console.log(videosLoaded);
+        let rawDataJSON = await rawData.json();
+        setVideoData(rawDataJSON);
     }
-    
 
     return (
         <div className="mainpage">
@@ -44,14 +38,14 @@ function MainPage(props:any){
             </div>
             <div id="div3" className={`${props.theme}`}>
                 <div className={`div3-top-heading ${props.theme}`}>Few random places for you to start from...</div>
-                {!videosLoaded||<div className="div3-bottom-videos">
-                    {/* {<div>Loading...</div>||<SuggestedVideo videoId={videoData?.items["0"].id} />} */}
-                    <SuggestedVideo videoId={videoData?.items["0"].id} />
-                    <SuggestedVideo videoId={videoData?.items["1"].id} />
-                    <SuggestedVideo videoId={videoData?.items["2"].id} />
-                </div>}
+                {videoData ? <div className="div3-bottom-videos">
+                    <SuggestedVideo videoId={videoData.items["0"].id} />
+                    <SuggestedVideo videoId={videoData.items["1"].id} />
+                    <SuggestedVideo videoId={videoData.items["2"].id} />
+                </div> : <div className={`div3-suggested-videos-loading ${props.theme}`}>Loading...</div>}
             </div>
             <div id="footer" className={`${props.theme}`}>
+                <a href="https://www.github.com/anuragsingh6/worldview" className={props.theme}>Report a bug</a><br />
                 &copy; Anurag Singh. All rights reserved.
             </div>
         </div>
