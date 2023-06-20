@@ -45,7 +45,7 @@ function MainPage(props:any){
                 </div> : <div className={`div3-suggested-videos-loading ${props.theme}`}>Loading...</div>}
             </div>
             <div id="footer" className={`${props.theme}`}>
-                <a href="https://www.github.com/anuragsingh6/worldview" className={props.theme}>Report a bug</a><br />
+                <a href="https://www.github.com/anuragsingh6/worldview" className={props.theme}>Report a bug/ Request a feature</a><br />
                 &copy; Anurag Singh. All rights reserved.
             </div>
         </div>
