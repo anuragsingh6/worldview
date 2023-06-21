@@ -8,7 +8,7 @@ function Navbar(props:any){
             <Link to="/"><div id="logo" className={`${props.theme}`}>Worldview</div></Link>
             <div className="search">
                 <input id="navbarsearch" className={`${props.theme}`} placeholder="Search" onChange={(e)=>{props.setSearchQuery(e.target.value)}}/>
-                <Link to={props.searchQuery ? `/search` : "/"}><button className={`search-button ${props.theme}`} onClick={props.Search}>Search</button></Link>
+                <Link to={props.searchQuery ? `/search/${props.searchQuery}` : "/"}><button className={`search-button ${props.theme}`} onClick={()=>{props.Search();props.setSearchData(null);}}>Search</button></Link>
             </div>
             <div className="uimode"><button type="button" className="mode-button" onClick={props.toggleTheme}>{props.theme ==="light"?"Dark":"Light"} Mode</button></div>
             <div className="uilogger">

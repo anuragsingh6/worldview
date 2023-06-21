@@ -39,14 +39,11 @@ function MainPage(props:any){
             <div id="div3" className={`${props.theme}`}>
                 <div className={`div3-top-heading ${props.theme}`}>Few random places for you to start from...</div>
                 {videoData ? <div className="div3-bottom-videos">
-                    <SuggestedVideo videoId={videoData.items["0"].id} />
-                    <SuggestedVideo videoId={videoData.items["1"].id} />
-                    <SuggestedVideo videoId={videoData.items["2"].id} />
+                    <Link to={`/video/${videoData.items['0'].id}`}><SuggestedVideo videoId={videoData.items["0"].id} /></Link>
+                    <Link to={`/video/${videoData.items['1'].id}`}><SuggestedVideo videoId={videoData.items["1"].id} /></Link>
+                    <Link to={`/video/${videoData.items['2'].id}`}><SuggestedVideo videoId={videoData.items["2"].id} /></Link>
                 </div> : <div className={`div3-suggested-videos-loading ${props.theme}`}>Loading...</div>}
-            </div>
-            <div id="footer" className={`${props.theme}`}>
-                <a href="https://www.github.com/anuragsingh6/worldview" className={props.theme}>Report a bug/ Request a feature</a><br />
-                &copy; Anurag Singh. All rights reserved.
+                <Link to="/videos/" style={{height:"10%",width:"10%",marginBottom:"3%"}}><button className="search-result-sort-option-button" style={{height:"100%",width:"100%",cursor:"pointer"}}>Show More</button></Link>
             </div>
         </div>
     )
