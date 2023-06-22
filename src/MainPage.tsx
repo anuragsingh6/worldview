@@ -3,15 +3,19 @@ import { Link } from "react-router-dom";
 import SuggestedVideo from "./SuggestedVideo";
 
 function MainPage(props:any){
-    let [videoData,setVideoData]=useState({items:{0:{id:""},1:{id:""},2:{id:""}}});
+    let [videoData,setVideoData]=useState<any>();
     useEffect(
         ()=>{document.title="Worldview";
         fetchSuggestedVideos();},[])
 
     async function fetchSuggestedVideos(){
-        let rawData = await fetch("https://youtube-browser-api.netlify.app/data/suggestion?limit=3");
-        let rawDataJSON = await rawData.json();
-        setVideoData(rawDataJSON);
+        try{
+            let rawData = await fetch("https://youtube-browser-api.netlify.app/data/suggestion?limit=3");
+            let rawDataJSON = await rawData.json();
+            setVideoData(rawDataJSON);
+            console.log(rawDataJSON);
+        }
+        catch{setTimeout(fetchSuggestedVideos,3000);}
     }
 
     return (
@@ -39,11 +43,11 @@ function MainPage(props:any){
             <div id="div3" className={`${props.theme}`}>
                 <div className={`div3-top-heading ${props.theme}`}>Few random places for you to start from...</div>
                 {videoData ? <div className="div3-bottom-videos">
-                    <Link to={`/video/${videoData.items['0'].id}`}><SuggestedVideo videoId={videoData.items["0"].id} /></Link>
-                    <Link to={`/video/${videoData.items['1'].id}`}><SuggestedVideo videoId={videoData.items["1"].id} /></Link>
-                    <Link to={`/video/${videoData.items['2'].id}`}><SuggestedVideo videoId={videoData.items["2"].id} /></Link>
+                    <Link to={`/video/${videoData.items['0'].id}`}><SuggestedVideo theme={props.theme} videoData={videoData.items["0"]} /></Link>
+                    <Link to={`/video/${videoData.items['1'].id}`}><SuggestedVideo theme={props.theme} videoData={videoData.items["1"]} /></Link>
+                    <Link to={`/video/${videoData.items['2'].id}`}><SuggestedVideo theme={props.theme} videoData={videoData.items["2"]} /></Link>
                 </div> : <div className={`div3-suggested-videos-loading ${props.theme}`}>Loading...</div>}
-                <Link to="/videos/" style={{height:"10%",width:"10%",marginBottom:"3%"}}><button className="search-result-sort-option-button" style={{height:"100%",width:"100%",cursor:"pointer"}}>Show More</button></Link>
+                <Link to="/videos/" style={{height:"auto",width:"50%",marginBottom:"3%",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}><button className="search-result-sort-option-button" style={{height:"100%",width:"auto",padding:"2% 5%",cursor:"pointer"}}>Show More</button></Link>
             </div>
         </div>
     )
