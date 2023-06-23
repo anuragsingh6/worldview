@@ -3,12 +3,11 @@ import SuggestedVideo from "./SuggestedVideo";
 import { Link } from "react-router-dom";
 
 function VideoPage(props:any){
-
-    useEffect(()=>{document.title=props.data ? `${props.data.title} | Worldview` : "Videos | Worldview";fetchSuggestedVideos();},[])
-    let path=document.location.pathname;
-    useEffect(()=>{console.log(path, typeof(path))},[path])
-
     let [videoPageSuggestions,setvideoPageSuggestions]=useState<any>();
+    let videoTitle=(props.data?props.data.title:"")||(videoPageSuggestions?videoPageSuggestions.items[0].title:"");
+
+    useEffect(()=>{document.title=videoTitle!=="" ? `${videoTitle} | Worldview` : "Videos | Worldview";fetchSuggestedVideos();},[])
+
     async function fetchSuggestedVideos(){
         try{
             let rawData = await fetch("https://youtube-browser-api.netlify.app/data/suggestion?limit=12");
@@ -16,14 +15,11 @@ function VideoPage(props:any){
             setvideoPageSuggestions(rawDataJSON);
             console.log(rawDataJSON);
         }
-        catch{
-            setTimeout(fetchSuggestedVideos,3000);
-        }
+        catch{setTimeout(fetchSuggestedVideos,3000);}
     }
 
     return (
         <div className={`videopage ${props.theme}`}>
-        {path.includes('videos') ?
             <div className="main-videopage">
                 <h2 style={{textAlign:"center"}}>Videos</h2>
                 {videoPageSuggestions?
@@ -58,11 +54,6 @@ function VideoPage(props:any){
                 <div>Loading...</div>
                 }
             </div>
-         :<div className="select-videopage">
-            <h2>{String(props.data) || String(videoPageSuggestions)}</h2>
-
-         </div>
-        }
         </div>
     )
 }

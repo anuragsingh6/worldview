@@ -8,6 +8,7 @@ import { createContext, useState } from "react";
 import SearchPage from "./SearchPage";
 import VideoPage from "./VideoPage";
 import ChannelPage from "./ChannelPage";
+import IndividualVideoPage from "./IndividualVideoPage";
 
 const Theme = createContext("light");
 
@@ -49,7 +50,7 @@ function App(){
                     
                     <Route path="/video/" element={<div className={`videoPage ${theme}`} style={{width:"100%"}}><h2 className={`videoPage-h2 ${theme}`}><Link to="/videos/" style={{all:"unset",cursor:"pointer"}}>Go to Videos</Link></h2></div>} />
                     <Route path="/videos/" element={<VideoPage theme={theme} />} />
-                    <Route path="/video/*" element={<VideoPage theme={theme} />} />
+                    <Route path="/video/*" element={<IndividualVideoPage theme={theme} />} />
                     
                     <Route path="/channel/" element={<div className={`videoPage ${theme}`} style={{width:"100%"}}><h2 className={`videoPage-h2 ${theme}`}><Link to="/videos/" style={{all:"unset",cursor:"pointer"}}>Go to Videos</Link></h2></div>} />
                     <Route path="/channel/*" element={<ChannelPage theme={theme} />} />

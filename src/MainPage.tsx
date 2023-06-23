@@ -43,9 +43,9 @@ function MainPage(props:any){
             <div id="div3" className={`${props.theme}`}>
                 <div className={`div3-top-heading ${props.theme}`}>Few random places for you to start from...</div>
                 {videoData ? <div className="div3-bottom-videos">
-                    <Link to={`/video/${videoData.items['0'].id}`}><SuggestedVideo theme={props.theme} videoData={videoData.items["0"]} /></Link>
-                    <Link to={`/video/${videoData.items['1'].id}`}><SuggestedVideo theme={props.theme} videoData={videoData.items["1"]} /></Link>
-                    <Link to={`/video/${videoData.items['2'].id}`}><SuggestedVideo theme={props.theme} videoData={videoData.items["2"]} /></Link>
+                    <SuggestedVideo theme={props.theme} videoData={videoData.items["0"]} />
+                    <SuggestedVideo theme={props.theme} videoData={videoData.items["1"]} />
+                    <SuggestedVideo theme={props.theme} videoData={videoData.items["2"]} />
                 </div> : <div className={`div3-suggested-videos-loading ${props.theme}`}>Loading...</div>}
                 <Link to="/videos/" style={{height:"auto",width:"50%",marginBottom:"3%",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}><button className="search-result-sort-option-button" style={{height:"100%",width:"auto",padding:"2% 5%",cursor:"pointer"}}>Show More</button></Link>
             </div>
