@@ -13,7 +13,7 @@ input{font-size:2.2vw;}
 #navbarsearch.light:focus{box-shadow:1vw 1vw 1vw -1vw black;}#navbarsearch.dark:focus{box-shadow:1vw 1vw 1vw -1vw white;}
 #navbarsearch.light{color:black;background-color:white;}#navbarsearch.dark{color:white;background-color:#454545;}
 #navbarsearch.dark::placeholder{color:#aaaaaa;}
-.search-button{height:100%;font-size:inherit;margin-left:5px;background-color:#cccccc;border:none;border-radius:2vh;}
+.search-button{height:100%;font-size:inherit;margin-left:5px;background-color:#cccccc;border:none;border-radius:20vw;}
 .search-button:hover{background-color:#aaaaaa;}
 /* .search>a{height:100%;} */
 /* .search-button.light{background-color:grey;}.search-button.dark{background-color:#f0f0f0;} */
@@ -75,14 +75,14 @@ a{color:initial;text-decoration:none;}
 .div3-bottom-videos>a,.individualvideopage-more-videos>a{height:33vh;width:90%;margin-bottom:10%;}
 .div3-top-heading{margin-bottom:5%;}
 .suggested-video-top{height:100%;width:100%;background:center no-repeat;background-size:contain;}
-.suggested-video-bottom{height:10%;width:100%;text-overflow:ellipsis;font-size:1.3rem;text-align:center;}
+.suggested-video-bottom{height:10%;width:100%;margin-top:2%;text-overflow:ellipsis;font-size:1.3rem;text-align:center;}
 
 #footer{padding:3% 0%;font-size:1.2em;}
 #footer.light{color:black;background-color:#f0f0f0;}#footer.dark{color:white;background-color:#222222;}
 
-.searchpage,.videopage,.channelpage,.videoPage{min-height:100vh;padding-top:10%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;font-size:2rem;}
-.searchpage.light,.videopage.light,.channelpage.light,.videoPage.light{background-color:white;color:black;}
-.searchpage.dark,.videopage.dark,.channelpage.dark,.videoPage.dark{background-color:#333333;color:white;}
+.searchpage,.videopage,.channelpage,.videoPage,.searchPage{min-height:100vh;padding-top:10%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;font-size:2rem;}
+.searchpage.light,.videopage.light,.channelpage.light,.videoPage.light,.searchPage.light{background-color:white;color:black;}
+.searchpage.dark,.videopage.dark,.channelpage.dark,.videoPage.dark,.searchPage.dark{background-color:#333333;color:white;}
 .search-video{height:auto;width:100%;margin:2% 0%;padding:2%;font-size:1.5rem;}
 .search-video,.search-video-div2,.search-video-div1{display:flex;flex-direction:row;align-items:flex-start;justify-content:flex-start;}
 .search-video-div1{height:100%;width:75%;flex-direction:column;}
@@ -110,7 +110,7 @@ a{color:initial;text-decoration:none;}
 .individualvideopage-mainvideo-channel{margin:2% 0%;font-weight:bold;}
 .individualvideopage-show-more-description-button{width:fit-content;margin:2% 0%;padding:1% 2%;}
 .individualvideopage-mainvideo-information-container{width:98%;}
-.individualvideopage-more-videos-container{height:100vh;width:100%;margin:5% 0%;}
+.individualvideopage-more-videos-container{height:100vh;width:100%;margin:5% 0%;display:flex;flex-direction:row;align-items:center;justify-content:center;}
 .individualvideopage-more-videos{height:100%;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;}
 .individualvideopage-more-videos-header{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;margin-top:5%;}
 .individualvideopage-more-videos-header>a{width:20%;}

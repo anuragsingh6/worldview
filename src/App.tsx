@@ -46,6 +46,7 @@ function App(){
                     <Route path="/login" element={<LoginPage theme={theme} />} />
                     <Route path="/signup" element={<SignupPage theme={theme} />} />
 
+                    <Route path="/search/" element={<div className={`searchPage ${theme}`} style={{width:"100%"}}><h2>Search for something</h2></div>} />
                     <Route path="/search/*" element={<SearchPage theme={theme} searchQuery={searchQuery} searchData={searchData} />} />
                     
                     <Route path="/video/" element={<div className={`videoPage ${theme}`} style={{width:"100%"}}><h2 className={`videoPage-h2 ${theme}`}><Link to="/videos/" style={{all:"unset",cursor:"pointer"}}>Go to Videos</Link></h2></div>} />

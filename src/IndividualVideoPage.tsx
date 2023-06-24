@@ -1,25 +1,32 @@
 import { useEffect, useState } from "react";
 import SuggestedVideo from "./SuggestedVideo";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function IndividualVideoPage(props:any){
-    let videoId=document.location.pathname.substring(7);let [currentVideoData,setCurrentVideoData]=useState<any>();
-    let [completeDescription,setCompleteDescription]=useState(false);let [moreVideosData,setMoreVideosData]=useState<any>();
+    let [currentVideoData,setCurrentVideoData]=useState<any>();
+    let [completeDescription,setCompleteDescription]=useState(false);
+    let [moreVideosData,setMoreVideosData]=useState<any>();
 
-    useEffect(()=>{document.title=currentVideoData?`${currentVideoData.title} | Worldview`:"Worldview";fetchVideoData()},[currentVideoData]);
-    useEffect(()=>{fetchVideoData();fetchMoreVideos();},[videoId])
+    useEffect(()=>{document.title=currentVideoData?`${currentVideoData.title} | Worldview`:"Worldview";},[currentVideoData]);
+    useEffect(()=>{console.log(document.location.pathname);fetchVideoData();fetchMoreVideos();},[useLocation().pathname.substring(7)]);
 
+let i=0;
     async function fetchVideoData(){
+        i+=1;
+        console.log("fetchVideoData called",i);
         try{
-            let rawVideoData=await fetch(`https://youtube-browser-api.netlify.app/content?id=${videoId}&params=title,channel,description`);
+            let rawVideoData=await fetch(`https://youtube-browser-api.netlify.app/content?id=${document.location.pathname.substring(7)}&params=title,channel,description`);
             let videoDataJSON=await rawVideoData.json();
-            setCurrentVideoData(videoDataJSON);
+            if (videoDataJSON.hasOwnProperty("message")){setCurrentVideoData({title:"Error loading title",channel:"Server",description:"Error loading description."});}
+            else{setCurrentVideoData(videoDataJSON);};
             console.log("videoDataJSON:",videoDataJSON);
         }
         catch{setTimeout(fetchVideoData,3000);}
     }
-
+let j=0;
     async function fetchMoreVideos(){
+        j+=1;
+        console.log("fetchMoreVideos called",j);
         try{
             let rawMoreVideosData=await fetch("https://youtube-browser-api.netlify.app/data/suggestion?limit=3");
             let moreVideosDataJSON=await rawMoreVideosData.json();
@@ -36,7 +43,7 @@ function IndividualVideoPage(props:any){
                 <h1>{currentVideoData.title}</h1>
                 <div className="individualvideopage-mainvideo-container">
                     <div className="individualvideopage-mainvideo">
-                        <iframe src={`https://www.youtube.com/embed/${videoId}`} height={"100%"} width={"100%"} frameBorder={"0"}></iframe>
+                        <iframe src={`https://www.youtube.com/embed/${document.location.pathname.substring(7)}`} height={"100%"} width={"100%"} frameBorder={"0"}></iframe>
                     </div>
                     <div className="individualvideopage-mainvideo-information-container">
                         <div className="individualvideopage-mainvideo-channel">by {currentVideoData.channel}</div>
@@ -51,7 +58,9 @@ function IndividualVideoPage(props:any){
                 </div>
                 <div className="individualvideopage-more-videos-container">
                     {moreVideosData?<div className={`individualvideopage-more-videos ${props.theme}`}>
-                        {moreVideosData.items.map((item:any)=>{return <SuggestedVideo theme={props.theme} videoData={item} />})}
+                        <SuggestedVideo theme={props.theme} videoData={moreVideosData.items[0]} />
+                        <SuggestedVideo theme={props.theme} videoData={moreVideosData.items[1]} />
+                        <SuggestedVideo theme={props.theme} videoData={moreVideosData.items[2]} />
                     </div>
                     :<h2>Loading...</h2>}
                     

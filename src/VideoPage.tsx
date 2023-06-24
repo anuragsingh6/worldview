@@ -4,16 +4,15 @@ import { Link } from "react-router-dom";
 
 function VideoPage(props:any){
     let [videoPageSuggestions,setvideoPageSuggestions]=useState<any>();
-    let videoTitle=(props.data?props.data.title:"")||(videoPageSuggestions?videoPageSuggestions.items[0].title:"");
 
-    useEffect(()=>{document.title=videoTitle!=="" ? `${videoTitle} | Worldview` : "Videos | Worldview";fetchSuggestedVideos();},[])
+    useEffect(()=>{document.title="Videos | Worldview";fetchSuggestedVideos();},[])
 
     async function fetchSuggestedVideos(){
         try{
             let rawData = await fetch("https://youtube-browser-api.netlify.app/data/suggestion?limit=12");
             let rawDataJSON = await rawData.json();
             setvideoPageSuggestions(rawDataJSON);
-            console.log(rawDataJSON);
+            console.log("rawDataJSON",rawDataJSON);
         }
         catch{setTimeout(fetchSuggestedVideos,3000);}
     }
