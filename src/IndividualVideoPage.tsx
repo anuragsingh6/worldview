@@ -10,10 +10,7 @@ function IndividualVideoPage(props:any){
     useEffect(()=>{document.title=currentVideoData?`${currentVideoData.title} | Worldview`:"Worldview";},[currentVideoData]);
     useEffect(()=>{console.log(document.location.pathname);fetchVideoData();fetchMoreVideos();},[useLocation().pathname.substring(7)]);
 
-let i=0;
     async function fetchVideoData(){
-        i+=1;
-        console.log("fetchVideoData called",i);
         try{
             let rawVideoData=await fetch(`https://youtube-browser-api.netlify.app/content?id=${document.location.pathname.substring(7)}&params=title,channel,description`);
             let videoDataJSON=await rawVideoData.json();
@@ -23,10 +20,8 @@ let i=0;
         }
         catch{setTimeout(fetchVideoData,3000);}
     }
-let j=0;
+
     async function fetchMoreVideos(){
-        j+=1;
-        console.log("fetchMoreVideos called",j);
         try{
             let rawMoreVideosData=await fetch("https://youtube-browser-api.netlify.app/data/suggestion?limit=3");
             let moreVideosDataJSON=await rawMoreVideosData.json();

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import LoginPage from "./LoginPage";
 import Page404 from "./Page404";
@@ -18,9 +18,9 @@ function App(){
     let [searchData,setSearchData]=useState();
 
     async function Search(){
-        if (searchQuery!==""){
+        if ((searchQuery!=="")||(document.location.pathname.substring(8)!=="")){
             try{
-                let searchURL=`https://youtube-browser-api.netlify.app/data/search?keyword=${searchQuery}`;
+                let searchURL=`https://youtube-browser-api.netlify.app/data/search?keyword=${searchQuery||document.location.pathname.substring(8)}`;
                 let rawSearchData = await fetch(searchURL);
                 searchData = await rawSearchData.json();
                 setSearchData(searchData);
@@ -47,13 +47,14 @@ function App(){
                     <Route path="/signup" element={<SignupPage theme={theme} />} />
 
                     <Route path="/search/" element={<div className={`searchPage ${theme}`} style={{width:"100%"}}><h2>Search for something</h2></div>} />
-                    <Route path="/search/*" element={<SearchPage theme={theme} searchQuery={searchQuery} searchData={searchData} />} />
+                    <Route path="/search/*" element={<SearchPage theme={theme} searchQuery={searchQuery} searchData={searchData} Search={Search} />} />
                     
-                    <Route path="/video/" element={<div className={`videoPage ${theme}`} style={{width:"100%"}}><h2 className={`videoPage-h2 ${theme}`}><Link to="/videos/" style={{all:"unset",cursor:"pointer"}}>Go to Videos</Link></h2></div>} />
+                    <Route path="/video/" element={<div className={`videoPage ${theme}`} style={{width:"100%"}}><h2 style={{margin:"10vw 5vw"}}><Link to="/videos/" style={{all:"unset",cursor:"pointer"}}>Go to Videos</Link></h2></div>} />
                     <Route path="/videos/" element={<VideoPage theme={theme} />} />
                     <Route path="/video/*" element={<IndividualVideoPage theme={theme} />} />
                     
-                    <Route path="/channel/" element={<div className={`videoPage ${theme}`} style={{width:"100%"}}><h2 className={`videoPage-h2 ${theme}`}><Link to="/videos/" style={{all:"unset",cursor:"pointer"}}>Go to Videos</Link></h2></div>} />
+                    <Route path="/channel/" element={<div className={`videoPage ${theme}`} style={{width:"100%"}}><h2 style={{margin:"10vw 5vw"}}><Link to="/videos/" style={{all:"unset",cursor:"pointer",border:"0.1vw solid grey",padding:"1vh"}}>Go to Videos</Link> or search for a channel</h2></div>} />
+                    <Route path="/channels/" element={<div className={`videoPage ${theme}`} style={{width:"100%"}}><h2 style={{margin:"10vw 5vw"}}><Link to="/videos/" style={{all:"unset",cursor:"pointer",border:"0.1vw solid grey",padding:"1vh"}}>Go to Videos</Link> or search for a channel</h2></div>} />
                     <Route path="/channel/*" element={<ChannelPage theme={theme} />} />
                     <Route path="*" element={<Page404 theme={theme} />} />
                 </Routes>
