@@ -8,7 +8,7 @@ function IndividualVideoPage(props:any){
     let [moreVideosData,setMoreVideosData]=useState<any>();
 
     useEffect(()=>{document.title=currentVideoData?`${currentVideoData.title} | Worldview`:"Worldview";},[currentVideoData]);
-    useEffect(()=>{console.log(document.location.pathname);fetchVideoData();fetchMoreVideos();},[useLocation().pathname.substring(7)]);
+    useEffect(()=>{fetchVideoData();fetchMoreVideos();},[useLocation().pathname.substring(7)]);
 
     async function fetchVideoData(){
         try{
@@ -16,7 +16,6 @@ function IndividualVideoPage(props:any){
             let videoDataJSON=await rawVideoData.json();
             if (videoDataJSON.hasOwnProperty("message")){setCurrentVideoData({title:"Error loading title",channel:"Server",description:"Error loading description."});}
             else{setCurrentVideoData(videoDataJSON);};
-            console.log("videoDataJSON:",videoDataJSON);
         }
         catch{setTimeout(fetchVideoData,3000);}
     }
@@ -26,7 +25,6 @@ function IndividualVideoPage(props:any){
             let rawMoreVideosData=await fetch("https://youtube-browser-api.netlify.app/data/suggestion?limit=3");
             let moreVideosDataJSON=await rawMoreVideosData.json();
             setMoreVideosData(moreVideosDataJSON);
-            console.log("moreVideosData:",moreVideosDataJSON);
         }
         catch{setTimeout(fetchMoreVideos,3000);}
     }

@@ -3,7 +3,7 @@ function SearchVideo(props:any){
     let thumbnailURL=props.videoData.thumbnail.thumbnails[0].url;
 
     return (
-        <Link to={props.videoData.length ? `/video/${props.videoData.id}`:`/channel/${props.videoData.id}`} className="search-video-link">
+        <Link to={props.videoData.length ? `/video/${props.videoData.id}`:`/search/${props.videoData.id}`} className="search-video-link">
         <div className="search-video">
             <div className="search-video-image" style={{backgroundImage:`url(${thumbnailURL})`,borderRadius:!props.videoData.length?"20vw":"1vh"}}></div>
             <div className="search-video-div1">

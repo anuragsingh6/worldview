@@ -6,7 +6,7 @@ function SearchPage(props:any){
     let [clicked, setClicked] = useState("all");
 
     useEffect(()=>{document.title=`Search "${document.location.pathname.substring(8)}" | Worldview`;}, [props.searchQuery]);
-    useEffect(()=>{props.Search();console.log("SearchPage.tsx",document.location.pathname.substring(8))},[useLocation().pathname]);
+    useEffect(()=>{props.Search();},[useLocation().pathname]);
 
     function updateView(){
         let elements=document.getElementsByClassName('search-video');

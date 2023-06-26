@@ -13,7 +13,6 @@ function MainPage(props:any){
             let rawData = await fetch("https://youtube-browser-api.netlify.app/data/suggestion?limit=3");
             let rawDataJSON = await rawData.json();
             setVideoData(rawDataJSON);
-            console.log(rawDataJSON);
         }
         catch{setTimeout(fetchSuggestedVideos,3000);}
     }

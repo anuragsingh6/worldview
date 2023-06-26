@@ -39,13 +39,14 @@ a{color:initial;text-decoration:none;}
 #loginpage.light,#signuppage.light{background-image:linear-gradient(to right,#006200,yellow);}
 #loginpage.dark,#signuppage.dark{background-image:linear-gradient(to right,#002f00,#474700);}
 #loginheading,#signupheading{font-size:4vw;text-align:center;color:yellow}
-#loginform,#signupform{height:90%;width:30%;padding:2%;display:flex;flex-direction:column;justify-content:space-evenly;border:0.2vw solid yellow;border-radius:2vw;backdrop-filter:blur(5px);}
+#loginform,#signupform{height:90%;padding:2%;display:flex;flex-direction:column;justify-content:space-evenly;border:0.2vw solid yellow;border-radius:2vw;backdrop-filter:blur(5px);}
 .logininput,.signupinput{font-size:3vw;border:none;border-bottom:0.1vw solid yellow;border-radius:0;outline:none;background-color:transparent;}
 .logininput::placeholder,.signupinput::placeholder{color:#ffff60;}
 #loginbutton,#signupbutton{font-size:0.7em;padding:3%;color:white;background-color:green;border:none;border-radius:20vw;}
 #loginbutton:hover,#signupbutton:hover{background-color:#006200!important;}
 #loginsignup{text-align:center;font-size:0.5em;}
 .loginsignupinterchange{white-space:nowrap;}.loginsignupinterchange.light{color:brown;}.loginsignupinterchange.dark{color:#ff3f3f;}
+#loginform,#signupform{width:75%;}
 
 .mainpage{margin-top:7vh;}
 #div1,#div2,#div3{height:60vh;width:100%;flex-direction:row;align-items:center;justify-content:space-evenly;}
@@ -123,10 +124,12 @@ a{color:initial;text-decoration:none;}
 @media screen and (min-width:350px) {
     .search-video-image{height:15vh;width:40%;}
     .individualvideopage-mainvideo{height:34vh;}
+    #loginform,#signupform{width:70%;}
 }
 
 @media screen and (min-width:400px) {
     .individualvideopage-mainvideo{height:38vh;}
+    #loginform,#signupform{width:65%;}
 }
 
 @media screen and (min-width:500px) {
@@ -145,6 +148,7 @@ a{color:initial;text-decoration:none;}
     .videopage-all-videos-row{flex-direction:row;}
     .individualvideopage-mainvideo{height:51vh;}
     .individualvideopage-more-videos-container{height:50vh;}
+    #loginform,#signupform{width:50%;}
 }
 
 @media screen and (min-width:800px) {
@@ -161,6 +165,7 @@ a{color:initial;text-decoration:none;}
     .individualvideopage{padding-top:10%;}
     .individualvideopage-mainvideo{height:51vh;width:75%;}
     .individualvideopage-mainvideo-information-container{width:75%;}
+    #loginform,#signupform{width:40%;}
 }
 
 
@@ -180,4 +185,5 @@ a{color:initial;text-decoration:none;}
     .videopage-all-videos-row{height:40vh;}
     .individualvideopage{padding-top:5%;}
     .individualvideopage-mainvideo{height:75vh;}
+    #loginform,#signupform{width:30%;}
 }
