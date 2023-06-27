@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 function SearchPage(props:any){
     let [clicked, setClicked] = useState("all");
 
-    useEffect(()=>{document.title=`Search "${document.location.pathname.substring(8)}" | Worldview`;}, [props.searchQuery]);
+    useEffect(()=>{document.title=`Search "${document.location.pathname.substring(18)}" | Worldview`;}, [props.searchQuery]);
     useEffect(()=>{props.Search();},[useLocation().pathname]);
 
     function updateView(){
@@ -31,7 +31,7 @@ function SearchPage(props:any){
             <div className="searchpage-container">
                 <div style={{width:"100%",padding:"0% 5%",overflowWrap:"break-word"}}>
                     <h2>You Searched Worldview For:</h2>
-                    <h2 style={{textAlign:"center"}}>"{document.location.pathname.substring(8)}"</h2>
+                    <h2 style={{textAlign:"center"}}>"{document.location.pathname.substring(18)}"</h2>
                 </div>
                 {props.searchData ? 
                 <div className="search-results">

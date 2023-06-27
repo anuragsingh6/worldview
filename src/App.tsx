@@ -9,7 +9,7 @@ import SearchPage from "./SearchPage";
 import VideoPage from "./VideoPage";
 import IndividualVideoPage from "./IndividualVideoPage";
 
-const Theme = createContext("dark");
+const Theme = createContext("light");
 
 function App(){
 
@@ -55,7 +55,7 @@ function App(){
     }
 
 
-    const [theme, setTheme] = useState("dark");
+    const [theme, setTheme] = useState("light");
     function toggleTheme(){setTheme((currentTheme)=>(currentTheme==="light"?"dark":"light"))}
 
     return (
