@@ -61,7 +61,7 @@ function App(){
     return (
         <>
         <Theme.Provider value={theme}>
-            <BrowserRouter>
+            <BrowserRouter basename="/worldview">
                 <Navbar theme={theme} toggleTheme={toggleTheme} Search={Search} searchQuery={searchQuery} setSearchQuery={setSearchQuery} setSearchData={setSearchData} accountHandler={accountHandler} account={account} accountExists={accountExists} deleteAccount={deleteAccount} />
                 <Routes>
                     <Route path="/" element={<MainPage theme={theme} />} />
