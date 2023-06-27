@@ -14,7 +14,7 @@ function MainPage(props:any){
             let rawDataJSON = await rawData.json();
             setVideoData(rawDataJSON);
         }
-        catch{setTimeout(fetchSuggestedVideos,3000);}
+        catch{/*setTimeout(fetchSuggestedVideos,3000);*/}
     }
 
     return (

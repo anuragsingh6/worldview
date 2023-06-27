@@ -38,13 +38,13 @@ a{color:initial;text-decoration:none;}
 
 #loginpage.light,#signuppage.light{background-image:linear-gradient(to right,#006200,yellow);}
 #loginpage.dark,#signuppage.dark{background-image:linear-gradient(to right,#002f00,#474700);}
-#loginheading,#signupheading{font-size:4vw;text-align:center;color:yellow}
+#loginheading,#signupheading{font-size:2em;text-align:center;color:yellow}
 #loginform,#signupform{height:90%;padding:2%;display:flex;flex-direction:column;justify-content:space-evenly;border:0.2vw solid yellow;border-radius:2vw;backdrop-filter:blur(5px);}
-.logininput,.signupinput{font-size:3vw;border:none;border-bottom:0.1vw solid yellow;border-radius:0;outline:none;background-color:transparent;}
+.logininput,.signupinput{font-size:1.5em;border:none;border-bottom:0.1vw solid yellow;border-radius:0;outline:none;background-color:transparent;}
 .logininput::placeholder,.signupinput::placeholder{color:#ffff60;}
-#loginbutton,#signupbutton{font-size:0.7em;padding:3%;color:white;background-color:green;border:none;border-radius:20vw;}
+#loginbutton,#signupbutton{font-size:1.5em;padding:3%;color:white;background-color:green;border:none;border-radius:20vw;}
 #loginbutton:hover,#signupbutton:hover{background-color:#006200!important;}
-#loginsignup{text-align:center;font-size:0.5em;}
+#loginsignup{text-align:center;font-size:1.2em;}
 .loginsignupinterchange{white-space:nowrap;}.loginsignupinterchange.light{color:brown;}.loginsignupinterchange.dark{color:#ff3f3f;}
 #loginform,#signupform{width:75%;}
 
@@ -54,7 +54,7 @@ a{color:initial;text-decoration:none;}
 .div2-bottom-content{padding:0% 5%;text-align:center;}
 .div1-left,.div1-right{height:75%;width:50%;margin-left:5%;align-items:flex-start;justify-content:space-evenly;}
 .div1-left-heading{font-weight:bold;}
-.div1-left.light{color:black;}.div1-left.dark{color:white;}
+.div1-left.light,.uilogger-username.light{color:black;}.div1-left.dark,.uilogger-username.dark{color:white;}
 .div1-left-buttoncontainer{height:10%;width:90%;display:flex;flex-direction:row;align-items:center;justify-content:flex-start;}
 .main-button{height:100%;width:100%;padding:2%;font-size:0.7em;color:white;background-color:#23b9ff;border:none;border-radius:20vw;cursor:pointer;}
 .div1-image{height:100%;width:90%;background:center no-repeat;background-size:contain;background-image:url(/images/img.svg);}
@@ -81,9 +81,9 @@ a{color:initial;text-decoration:none;}
 #footer{padding:3% 0%;font-size:1.2em;}
 #footer.light{color:black;background-color:#f0f0f0;}#footer.dark{color:white;background-color:#222222;}
 
-.searchpage,.videopage,.channelpage,.videoPage,.searchPage,.channelPage{min-height:100vh;padding-top:10%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;font-size:2rem;}
-.searchpage.light,.videopage.light,.channelpage.light,.videoPage.light,.searchPage.light,.channelPage.light{background-color:white;color:black;}
-.searchpage.dark,.videopage.dark,.channelpage.dark,.videoPage.dark,.searchPage.dark,.channelPage.dark{background-color:#333333;color:white;}
+.searchpage,.videopage,.videoPage,.searchPage,.channelPage{min-height:100vh;padding-top:10%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;font-size:2rem;}
+.searchpage.light,.videopage.light,.videoPage.light,.searchPage.light,.channelPage.light{background-color:white;color:black;}
+.searchpage.dark,.videopage.dark,.videoPage.dark,.searchPage.dark,.channelPage.dark{background-color:#333333;color:white;}
 .search-video{height:auto;width:100%;margin:2% 0%;padding:2%;font-size:1.5rem;}
 .search-video,.search-video-div2,.search-video-div1{display:flex;flex-direction:row;align-items:flex-start;justify-content:flex-start;}
 .search-video-div1{height:100%;width:75%;flex-direction:column;}
@@ -96,10 +96,10 @@ a{color:initial;text-decoration:none;}
 .search-result-sort-option-button:active{color:white;background-color:black;}
 .searchpage-container{height:100%;width:90%;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 
-.videopage,.channelpage{min-height:100vh;width:100%;}
+.videopage{min-height:100vh;width:100%;}
 .videopage-all-videos,.videopage-all-videos-row{height:auto;width:90%;display:flex;flex-direction:column;}
 .videopage-all-videos-row{width:100%;flex-direction:column;justify-content:space-evenly;}
-.videopage-main-container,.channelpage-main-container{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.videopage-main-container{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .videopage-video-container{height:98%;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .videopage{padding-bottom:5%;}
 .videopage-all-videos-row>a{all:unset;cursor:pointer;height:33vh;width:100%;margin-bottom:10%;}
@@ -117,9 +117,9 @@ a{color:initial;text-decoration:none;}
 .individualvideopage-more-videos-header{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;margin-top:5%;}
 .individualvideopage-more-videos-header>a{width:20%;}
 
-.channelpage-main-container{width:90%;}
-.channelpage-icon-about-container{width:100%;margin-bottom:5%;display:flex;flex-direction:row;}
-.channelpage-icon-container,.channelpage-about-container{display:flex;flex-direction:column;}
+.uilogger-username{min-height:100%;min-width:100%;height:100%;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;}
+#accountDialog.light{color:black;background-color:white;}#accountDialog.dark{color:white;background-color:#444444;}
+.uilogger{min-height:100%;min-width:5%;}
 
 @media screen and (min-width:350px) {
     .search-video-image{height:15vh;width:40%;}
@@ -135,10 +135,10 @@ a{color:initial;text-decoration:none;}
 @media screen and (min-width:500px) {
     html,body,#root,#navbar{font-size:1.75vw;}
     #logo{font-size:2.625vw;}
-    #navbarsearch{font-size:1.925vw;width:auto;}
+    #navbarsearch{font-size:1.25vw;width:auto;}
     #loginform,#signupform{height:100%;}
-    #loginheading,#signupheading{font-size:3vw;}
-    .logininput,#loginbutton,.signupinput,#signupbutton{font-size:2vw;}
+    #loginheading,#signupheading{font-size:1em;}
+    .logininput,#loginbutton,.signupinput,#signupbutton{font-size:0.8em;}
     #div1,#div2,#div3{height:75vh;}
     .div3-bottom-videos,.individualvideopage-more-videos{flex-direction:row;}
     .div3-bottom-videos>a,.individualvideopage-more-videos>a{width:30%;}
@@ -149,15 +149,16 @@ a{color:initial;text-decoration:none;}
     .individualvideopage-mainvideo{height:51vh;}
     .individualvideopage-more-videos-container{height:50vh;}
     #loginform,#signupform{width:50%;}
+    #loginsignup{font-size:0.7em;}
 }
 
 @media screen and (min-width:800px) {
     html,body,#root,#navbar{font-size:1.5vw;}
     .div1-left,.div2-bottom-content,#div3{font-size:2.5vw;}
     #logo{font-size:2.25vw;}
-    #navbarsearch{font-size:1.65vw;}
-    #loginheading,#signupheading{font-size:2.25vw;}
-    .logininput,#loginbutton,.signupinput,#signupbutton{font-size:1.5vw;}
+    #navbarsearch{font-size:1.1vw;}
+    #loginheading,#signupheading{font-size:0.9em;}
+    .logininput,#loginbutton,.signupinput,#signupbutton{font-size:0.6em;}
     .div3-bottom-videos>a,.individualvideopage-more-videos>a{height:60%;width:30%;}
     .search-video-image{height:17vh;width:20%;}
     .search-video-link{width:80%;}
@@ -166,6 +167,7 @@ a{color:initial;text-decoration:none;}
     .individualvideopage-mainvideo{height:51vh;width:75%;}
     .individualvideopage-mainvideo-information-container{width:75%;}
     #loginform,#signupform{width:40%;}
+    #loginsignup{font-size:0.5em;}
 }
 
 
@@ -173,11 +175,11 @@ a{color:initial;text-decoration:none;}
     html,body,#root,#navbar{font-size:1vw;}
     .div1-left,.div2-bottom-content,#div3{font-size:2vw;}
     .div1-left-buttoncontainer{height:15%;}
-    /* #footer{font-size:0.4em;} */
+    #footer{font-size:1em;}
     #logo{font-size:1.5vw;}
-    #navbarsearch{font-size:1.1vw;}
-    #loginheading,#signupheading{font-size:2vw;}
-    .logininput,#loginbutton,.signupinput,#signupbutton{font-size:1.25vw;}
+    #navbarsearch{font-size:1vw;}
+    #loginheading,#signupheading{font-size:0.5em;}
+    .logininput,#loginbutton,.signupinput,#signupbutton{font-size:0.4em;}
     .search-video-link{width:75%;}
     .search-video{height:18vh;}
     .search-video-image{height:19vh;width:20%;}
@@ -186,4 +188,5 @@ a{color:initial;text-decoration:none;}
     .individualvideopage{padding-top:5%;}
     .individualvideopage-mainvideo{height:75vh;}
     #loginform,#signupform{width:30%;}
+    #loginsignup{font-size:0.3em;}
 }

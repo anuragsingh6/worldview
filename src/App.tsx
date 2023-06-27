@@ -9,14 +9,15 @@ import SearchPage from "./SearchPage";
 import VideoPage from "./VideoPage";
 import IndividualVideoPage from "./IndividualVideoPage";
 
-const Theme = createContext("light");
+const Theme = createContext("dark");
 
 function App(){
 
     const [searchQuery,setSearchQuery] = useState("");
     let [searchData,setSearchData]=useState();
-    let accountExists=false;let account:any={"name":null,"email":null,"password":null};
-    useEffect(()=>{accountHandler();},[]);
+    let [account,setAccount]=useState<any>({"worldviewUsername":localStorage.getItem("worldviewUsername")||null,"worldviewUseremail":localStorage.getItem("worldviewEmail")||null,"worldviewUserpassword":localStorage.getItem("worldviewPassword")||null});
+    let [accountExists,setAccountExists]=useState<any>(localStorage.getItem("worldviewAccountCreated"));
+    useEffect(()=>{;accountHandler();},[]);
 
     async function Search(){
         if ((searchQuery!=="")||(document.location.pathname.substring(8)!=="")){
@@ -35,39 +36,46 @@ function App(){
     }
 
     function validateAccountDetails(name:string,email:string,pswd:string){
-        if (name===""){return "N_ERR";}
-        else if (email===""){return "E_EMPTY";}
-        else if (!email.includes("@")||!email.includes(".")||email.includes(" ")||email.substring(email.indexOf("@"))===""||email.substring(0,email.indexOf("@"))===""||email.substring(email.indexOf("."))===""||email.substring(0,email.indexOf("."))===""){return "E_ERR";}
-        else if (pswd===""){return "P_ERR";}
-        else if (pswd.length<8){return "P_SHORT";}
+        if (name===""){alert("Please Enter Your Name");return false;}
+        else if (email===""){alert("Please Enter Your Email");return false;}
+        else if (!email.includes("@")||!email.includes(".")||email.includes(" ")||email.substring(email.indexOf("@"))===""||email.substring(0,email.indexOf("@"))===""||email.substring(email.indexOf("."))===""||email.substring(0,email.indexOf("."))===""){alert("Invalid email");return false;}
+        else if (pswd===""){alert("Please Enter a Password");return false;}
+        else if (pswd.length<8){alert("Please Enter a Longer Password");return false;}
         return true;
     }
 
     function accountHandler(){
-        if(localStorage.worldviewAccountCreated==="true"){
-            accountExists=true;
-            account["name"]=localStorage.getItem("worldviewUsername");
-            account["email"]=localStorage.getItem("worldviewEmail");
-            account["password"]=localStorage.getItem("worldviewPassword");
-            console.log(account);
-            // document.location.pathname="/";
+        console.log("from App.tsx :  ","accountExists",localStorage.getItem("worldviewAccountCreated"),typeof(localStorage.getItem("worldviewAccountCreated")));
+        if(localStorage.getItem("worldviewAccountCreated")===null){
+            console.log(localStorage.getItem("worldviewAccountCreated"));
+            localStorage.setItem("worldviewAccountCreated","false");
         }
-        else{alert("Account Error");}
+        else if(localStorage.worldviewAccountCreated==="true"){
+            setAccount({"worldviewUsername":localStorage.getItem("worldviewUsername"),"worldviewUseremail":localStorage.getItem("worldviewEmail"),"worldviewUserpassword":localStorage.getItem("worldviewPassword")});
+            console.log(account);
+            return;
+        }
+    }
+
+    function deleteAccount(){
+        setAccountExists("false");localStorage.setItem("worldviewAccountCreated","false");
+        setAccount({"worldviewUsername":null,"worldviewUseremail":null,"worldviewUserpassword":null});
+        ["worldviewUsername","worldviewEmail","worldviewPassword"].map((item)=>localStorage.removeItem(item));
     }
 
 
-    const [theme, setTheme] = useState("light");
+    const [theme, setTheme] = useState("dark");
     function toggleTheme(){setTheme((currentTheme)=>(currentTheme==="light"?"dark":"light"))}
 
     return (
         <>
         <Theme.Provider value={theme}>
             <BrowserRouter>
-                <Navbar theme={theme} toggleTheme={toggleTheme} Search={Search} searchQuery={searchQuery} setSearchQuery={setSearchQuery} setSearchData={setSearchData} />
+                <Navbar theme={theme} toggleTheme={toggleTheme} Search={Search} searchQuery={searchQuery} setSearchQuery={setSearchQuery} setSearchData={setSearchData} accountHandler={accountHandler} account={account} accountExists={accountExists} deleteAccount={deleteAccount} />
                 <Routes>
                     <Route path="/" element={<MainPage theme={theme} />} />
-                    <Route path="/login" element={<LoginPage theme={theme} accountHandler={accountHandler} />} />
-                    <Route path="/signup" element={<SignupPage theme={theme} validateAccountDetails={validateAccountDetails} accountHandler={accountHandler} />} />
+                    <Route path="/login" element={<LoginPage theme={theme} validateAccountDetails={validateAccountDetails} accountHandler={accountHandler} accountExists={accountExists} />} />
+                    <Route path="/signup" element={<SignupPage theme={theme} validateAccountDetails={validateAccountDetails} accountHandler={accountHandler} setAccountExists={setAccountExists} accountExists={accountExists} />} />
 
                     <Route path="/search/" element={<div className={`searchPage ${theme}`} style={{width:"100%"}}><h2>Search for something</h2></div>} />
                     <Route path="/search/*" element={<SearchPage theme={theme} searchQuery={searchQuery} searchData={searchData} Search={Search} />} />
