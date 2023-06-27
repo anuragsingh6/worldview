@@ -11,13 +11,7 @@ function SignupPage(props:any){
         }
         else{
             localStorage.setItem("worldviewUsername",name);localStorage.setItem("worldviewEmail",email);localStorage.setItem("worldviewPassword",pswd);
-            if(props.validateAccountDetails(name,email,pswd)){
-                console.log("from SignupPage.tsx :  ","accountExists",localStorage.getItem("worldviewAccountCreated"),typeof(localStorage.getItem("worldviewAccountCreated")));
-                props.setAccountExists("true");localStorage.setItem("worldviewAccountCreated","true");
-                console.log("from SignupPage.tsx :  ","accountExists",localStorage.getItem("worldviewAccountCreated"),typeof(localStorage.getItem("worldviewAccountCreated")));
-                console.log(localStorage);
-                props.accountHandler();navigateTo("/");
-            }
+            if(props.validateAccountDetails(name,email,pswd)){props.setAccountExists("true");localStorage.setItem("worldviewAccountCreated","true");props.accountHandler();navigateTo("/");}
         }
     }
 

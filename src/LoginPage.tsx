@@ -12,7 +12,6 @@ function LoginPage(props:any){
             if ((localStorage.getItem("worldviewUsername")===name)&&(localStorage.getItem("worldviewEmail")===email)&&(localStorage.getItem("worldviewPassword")===pswd)){
                 props.validateAccountDetails();props.accountHandler();
             }
-
         }
     }
 

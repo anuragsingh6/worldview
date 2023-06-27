@@ -26,7 +26,6 @@ function App(){
                 let rawSearchData = await fetch(searchURL);
                 searchData = await rawSearchData.json();
                 setSearchData(searchData);
-                console.log("App.tsx:",searchQuery,searchData);
             }
             catch{
                 console.log("Error loading data. Trying again.");
@@ -45,16 +44,8 @@ function App(){
     }
 
     function accountHandler(){
-        console.log("from App.tsx :  ","accountExists",localStorage.getItem("worldviewAccountCreated"),typeof(localStorage.getItem("worldviewAccountCreated")));
-        if(localStorage.getItem("worldviewAccountCreated")===null){
-            console.log(localStorage.getItem("worldviewAccountCreated"));
-            localStorage.setItem("worldviewAccountCreated","false");
-        }
-        else if(localStorage.worldviewAccountCreated==="true"){
-            setAccount({"worldviewUsername":localStorage.getItem("worldviewUsername"),"worldviewUseremail":localStorage.getItem("worldviewEmail"),"worldviewUserpassword":localStorage.getItem("worldviewPassword")});
-            console.log(account);
-            return;
-        }
+        if(localStorage.getItem("worldviewAccountCreated")===null){localStorage.setItem("worldviewAccountCreated","false");}
+        else if(localStorage.worldviewAccountCreated==="true"){setAccount({"worldviewUsername":localStorage.getItem("worldviewUsername"),"worldviewUseremail":localStorage.getItem("worldviewEmail"),"worldviewUserpassword":localStorage.getItem("worldviewPassword")});return;}
     }
 
     function deleteAccount(){
