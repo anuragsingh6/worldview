@@ -8,11 +8,11 @@ function IndividualVideoPage(props:any){
     let [moreVideosData,setMoreVideosData]=useState<any>();
 
     useEffect(()=>{document.title=currentVideoData?`${currentVideoData.title} | Worldview`:"Worldview";},[currentVideoData]);
-    useEffect(()=>{fetchVideoData();fetchMoreVideos();},[useLocation().pathname.substring(7)]);
+    useEffect(()=>{fetchVideoData();fetchMoreVideos();},[useLocation().pathname.substring(17)]);
 
     async function fetchVideoData(){
         try{
-            let rawVideoData=await fetch(`https://youtube-browser-api.netlify.app/content?id=${document.location.pathname.substring(7)}&params=title,channel,description`);
+            let rawVideoData=await fetch(`https://youtube-browser-api.netlify.app/content?id=${document.location.pathname.substring(17)}&params=title,channel,description`);
             let videoDataJSON=await rawVideoData.json();
             if (videoDataJSON.hasOwnProperty("message")){setCurrentVideoData({title:"Error loading title",channel:"Server",description:"Error loading description."});}
             else{setCurrentVideoData(videoDataJSON);};
@@ -36,7 +36,7 @@ function IndividualVideoPage(props:any){
                 <h1>{currentVideoData.title}</h1>
                 <div className="individualvideopage-mainvideo-container">
                     <div className="individualvideopage-mainvideo">
-                        <iframe src={`https://www.youtube.com/embed/${document.location.pathname.substring(7)}`} height={"100%"} width={"100%"} frameBorder={"0"}></iframe>
+                        <iframe src={`https://www.youtube.com/embed/${document.location.pathname.substring(17)}`} height={"100%"} width={"100%"} frameBorder={"0"}></iframe>
                     </div>
                     <div className="individualvideopage-mainvideo-information-container">
                         <div className="individualvideopage-mainvideo-channel">by {currentVideoData.channel}</div>

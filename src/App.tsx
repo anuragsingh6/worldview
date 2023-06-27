@@ -20,9 +20,9 @@ function App(){
     useEffect(()=>{;accountHandler();},[]);
 
     async function Search(){
-        if ((searchQuery!=="")||(document.location.pathname.substring(8)!=="")){
+        if ((searchQuery!=="")||(document.location.pathname.substring(18)!=="")){
             try{
-                let searchURL=`https://youtube-browser-api.netlify.app/data/search?keyword=${searchQuery||document.location.pathname.substring(8)}`;
+                let searchURL=`https://youtube-browser-api.netlify.app/data/search?keyword=${searchQuery||document.location.pathname.substring(18)}`;
                 let rawSearchData = await fetch(searchURL);
                 searchData = await rawSearchData.json();
                 setSearchData(searchData);
