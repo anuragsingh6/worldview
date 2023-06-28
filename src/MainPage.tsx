@@ -46,7 +46,7 @@ function MainPage(props:any){
                     <SuggestedVideo theme={props.theme} videoData={videoData.items["1"]} />
                     <SuggestedVideo theme={props.theme} videoData={videoData.items["2"]} />
                 </div> : <div className={`div3-suggested-videos-loading ${props.theme}`}>Loading...</div>}
-                <Link to="/videos/" style={{height:"auto",width:"50%",marginBottom:"3%",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}><button className="search-result-sort-option-button" style={{height:"100%",width:"auto",padding:"2% 5%",cursor:"pointer"}}>Show More</button></Link>
+                <Link to="/videos/" style={{height:"10%",width:"20%",marginBottom:"3%",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}><button className="search-result-sort-option-button" style={{height:"100%",width:"100%",padding:"5% 10%",cursor:"pointer",whiteSpace:"nowrap"}}>Show More</button></Link>
             </div>
         </div>
     )
