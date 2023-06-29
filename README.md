@@ -12,4 +12,4 @@ Moreover, <strong>no ads</strong> to spoil your experience.
 Click the button above to open worldview.
 
 # Bug Reporting
-Did you find any unexpected behavior or bug in functioning of Worldview? [Report it here](https://github.com/anuragsingh6/worldview)
+Did you find any unexpected behavior or bug in functioning of Worldview? [Report it here](https://github.com/anuragsingh6/worldview/issues)
