@@ -5,7 +5,8 @@ Watch all your favourite Youtube Videos without putting your <strong>privacy</st
 Moreover, <strong>no ads</strong> to spoil your experience.
 
 # How to use
-[<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;"><image src="https://raw.githubusercontent.com/anuragsingh6/worldview/main/images/logo.svg"></image><div>Open Worldview</div></div>](https://anuragsingh6.github.io/worldview)
+[<image src="https://raw.githubusercontent.com/anuragsingh6/worldview/main/images/logo.svg"></image>
+Open Worldview](https://anuragsingh6.github.io/worldview)
 Click the button above to open worldview.
 
 # Bug Reporting
