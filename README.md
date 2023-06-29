@@ -2,6 +2,7 @@
 a privacy-focused ad-free video platform
 
 Watch all your favourite Youtube Videos without putting your <strong>privacy</strong> at stake and getting <strong>tracked</strong>.
+
 Moreover, <strong>no ads</strong> to spoil your experience.
 
 # How to use
@@ -11,5 +12,4 @@ Moreover, <strong>no ads</strong> to spoil your experience.
 Click the button above to open worldview.
 
 # Bug Reporting
-Did you find any unexpected behavior or bug in functioning of Worldview?
-[Report it here](https://github.com/anuragsingh6/worldview)
+Did you find any unexpected behavior or bug in functioning of Worldview?[Report it here](https://github.com/anuragsingh6/worldview)
