@@ -6,7 +6,8 @@ Moreover, <strong>no ads</strong> to spoil your experience.
 
 # How to use
 [<image src="https://raw.githubusercontent.com/anuragsingh6/worldview/main/images/logo.svg"></image>
-Open Worldview](https://anuragsingh6.github.io/worldview)
+<br />Open Worldview](https://anuragsingh6.github.io/worldview)
+
 Click the button above to open worldview.
 
 # Bug Reporting
